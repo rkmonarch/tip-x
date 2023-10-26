@@ -4,7 +4,7 @@ import Link from "next/link";
 import { FC, useState } from "react";
 import { BsTwitter } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
-import Header from "@/components/Header"
+import Header from "@/components/Header";
 import { useRouter } from "next/router";
 
 interface UserAccount {
@@ -64,13 +64,10 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
   const [nftsData, setNftsData] = useState<NFTCard[]>([]);
   const [tags, setTags] = useState<string[]>([]);
 
-  const getTags = async (address:any) => {
-    const data = await fetch(
-      `/api/getNFTtags?address=${address}`,
-      {
-        method: "GET",
-      }
-    );
+  const getTags = async (address: any) => {
+    const data = await fetch(`/api/getNFTtags?address=${address}`, {
+      method: "GET",
+    });
     const tag = await data.json();
     const tagsList: string[] = [];
     tag.map((t: string) => {
@@ -79,32 +76,23 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
     setTags(tagsList);
   };
 
-  const getTopNFTs = async (address:any) => {
-    const data = await fetch(
-      `/api/getTopNFTs?address=${address}`,
-      {
-        method: "GET",
-      }
-    );
+  const getTopNFTs = async (address: any) => {
+    const data = await fetch(`/api/getTopNFTs?address=${address}`, {
+      method: "GET",
+    });
     const nfts = await data.json();
     const nftsList: NFTCard[] = [];
-  if (nfts.length > 0) {
-    nfts.map((nft: any) => {
-      nftsList.push({
-        image: nft.previews.image_medium_url,
-        name: nft.name,
-        url: nft.collection.marketplace_pages[0].collection_url,
+    if (nfts.length > 0) {
+      nfts.map((nft: any) => {
+        nftsList.push({
+          image: nft.previews.image_medium_url,
+          name: nft.name,
+          url: nft.collection.marketplace_pages[0].collection_url,
+        });
       });
-    });
-  }
+    }
     setNftsData(nftsList);
   };
-
-
-
-  
-
-  
 
   return (
     <>
@@ -145,12 +133,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
                 href={"https://www.lens.xyz/" + lens}
                 className="w-fit text-sm border border-gray-700 rounded-full hover:bg-orange-600 hover:border-orange-600 hover:text-white"
               >
-                <Image
-                  src="/lens.png"
-                  height={36}
-                  width={36}
-                  alt="social"
-                />
+                <Image src="/lens.png" height={36} width={36} alt="social" />
               </Link>
             </div>
             <div className="flex flex-col md:flex-row items-center mt-2 space-y-1 md:space-y-0 md:space-x-1 ">
@@ -233,7 +216,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
                       </div>
                       <button
                         onClick={(e) => {
-                          e.preventDefault();                          
+                          e.preventDefault();
                         }}
                         type="submit"
                         className="w-full text-white bg-orange-600 focus:ring-1 focus:outline-none focus:ring-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

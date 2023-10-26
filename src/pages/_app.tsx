@@ -8,9 +8,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiConfig}>
       <ConnectKitProvider theme="retro">
-        
-          <Component {...pageProps} />
-        
+        <Component {...pageProps} />
       </ConnectKitProvider>
     </WagmiConfig>
   );

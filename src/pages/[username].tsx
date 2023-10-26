@@ -17,7 +17,6 @@ export const getServerSideProps = async (context: any) => {
   const username = context.query.username;
 
   try {
-    
   } catch (error) {
     return {
       notFound: true,

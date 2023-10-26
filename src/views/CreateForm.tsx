@@ -17,11 +17,13 @@ export default function CreateForm() {
     e.preventDefault();
     const files = (e.target as HTMLInputElement).files!;
     if (process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN != null) {
-      const client = new Web3Storage({ token: process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN });
-      client.put(files).then((cid:String) => {
+      const client = new Web3Storage({
+        token: process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN,
+      });
+      client.put(files).then((cid: String) => {
         console.log(cid);
         setIcon(`https://${cid}.ipfs.w3s.link/${files[0].name}`);
-        console.log(`https://${cid}.ipfs.w3s.link/${files[0].name}`)
+        console.log(`https://${cid}.ipfs.w3s.link/${files[0].name}`);
       });
     } else {
       console.log("No access token");
@@ -42,12 +44,14 @@ export default function CreateForm() {
     };
 
     if (process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN != null) {
-      const client = new Web3Storage({ token: process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN });
+      const client = new Web3Storage({
+        token: process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN,
+      });
       client
         .put([new File([JSON.stringify(profile)], `${userName}.json`)])
         .then(async (cid: any) => {
           try {
-            ""
+            ("");
           } catch (error) {
             console.log("Error", error);
           }
