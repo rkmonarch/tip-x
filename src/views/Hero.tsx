@@ -23,7 +23,7 @@ export default function Hero() {
       <nav className="relative py-6 mb-12 md:mb-20 bg-transparent z-50">
         <div className="container px-4 mx-auto">
           <div className="flex items-center">
-            <a className="hidden lg:inline-block text-lg font-bold" href="#">
+            <Link className="hidden lg:inline-block text-lg font-bold" href="/">
               <Image
                 className="h-10"
                 src="/tipX.png"
@@ -31,8 +31,8 @@ export default function Hero() {
                 height={60}
                 width={40}
               />
-            </a>
-            <a className="inline-block lg:hidden text-lg font-bold" href="#">
+            </Link>
+            <Link className="inline-block lg:hidden text-lg font-bold" href="/">
               <Image
                 className="h-10"
                 src="/tipX.png"
@@ -40,12 +40,15 @@ export default function Hero() {
                 height={60}
                 width={40}
               />
-            </a>
+            </Link>
             <ul className="hidden lg:flex ml-2 lg:w-auto lg:space-x-14 items-center">
               <li>
-                <p className="inline-block text-3xl text-white hover:text-teal-200 font-bold">
+                <Link
+                  className="inline-block text-3xl text-white hover:text-teal-200 font-bold"
+                  href={"/"}
+                >
                   TipX
-                </p>
+                </Link>
               </li>
             </ul>
             <div className="hidden lg:block ml-auto">
@@ -99,7 +102,9 @@ export default function Hero() {
                       />
                       <div className="p-px bg-white rounded-full -ml-3">
                         <div className="flex items-center justify-center w-12 h-12 rounded-full bg-violet-100">
-                          <span className="font-semibold text-violet-700">52K+</span>
+                          <span className="font-semibold text-violet-700">
+                            52K+
+                          </span>
                         </div>
                       </div>
                     </div>

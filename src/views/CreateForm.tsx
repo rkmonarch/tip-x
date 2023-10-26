@@ -65,10 +65,10 @@ export default function CreateForm() {
     <section className="py-10 bg-gray-900 sm:py-16 lg:py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-2xl mx-auto text-center">
-          <h2 className="text-3xl font-bold leading-tight text-gray-100 sm:text-4xl lg:text-5xl">
+          <h2 className="text-3xl font-bold leading-tight text-teal-200 sm:text-4xl lg:text-5xl">
             Your social flex
           </h2>
-          <p className="max-w-xl mx-auto mt-4 text-gray-300 leading-relaxed">
+          <p className="max-w-xl mx-auto mt-4 text-gray-300 text-lg leading-relaxed">
             Brag your work to the most exciting audience on Ethereum and earn
             hefty rewards in ETH. Build, Share & Grow!
           </p>
@@ -80,7 +80,7 @@ export default function CreateForm() {
                 <div className="flex justify-center mb-5">
                   <div className="flex flex-row items-center space-x-2">
                     <Image
-                      className="mx-auto rounded-xl border border-orange-600 shadow-lg"
+                      className="mx-auto object-cover rounded-3xl border-2 border-violet-400 shadow-md"
                       src={icon !== "" ? icon : "/preview.svg"}
                       loader={({ src }) => src}
                       alt="profile"
@@ -92,7 +92,7 @@ export default function CreateForm() {
                         Upload your pfp
                       </label>
                       <input
-                        className="p-2 text-xs text-gray-900 border border-gray-300 rounded-xl cursor-pointer bg-gray-50 focus:outline-none"
+                        className="p-2 text-xs text-violet-600 border border-violet-300 rounded-xl cursor-pointer bg-violet-50 focus:outline-none"
                         id="image"
                         name="image"
                         type="file"
@@ -121,7 +121,7 @@ export default function CreateForm() {
                         onChange={(e) => {
                           setName(e.target.value);
                         }}
-                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-violet-500 caret-violet-500"
                       />
                     </div>
                   </div>
@@ -140,7 +140,7 @@ export default function CreateForm() {
                           setEmail(e.target.value);
                         }}
                         placeholder="javier@tipx.com"
-                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-violet-500 caret-violet-500"
                       />
                     </div>
                   </div>
@@ -159,7 +159,7 @@ export default function CreateForm() {
                           setUserName(e.target.value);
                         }}
                         placeholder="Enter a short username"
-                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-violet-500 caret-violet-500"
                       />
                     </div>
                   </div>
@@ -179,7 +179,7 @@ export default function CreateForm() {
                           setTwitterUrl(e.target.value);
                         }}
                         placeholder="Enter your twitter handle"
-                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-violet-500 caret-violet-500"
                       />
                     </div>
                   </div>
@@ -199,7 +199,7 @@ export default function CreateForm() {
                           setLens(e.target.value);
                         }}
                         placeholder="Enter your lens handle"
-                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-violet-500 caret-violet-500"
                       />
                     </div>
                   </div>
@@ -218,7 +218,7 @@ export default function CreateForm() {
                           setGithubUrl(e.target.value);
                         }}
                         placeholder="Enter your GitHub handle"
-                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-violet-500 caret-violet-500"
                       />
                     </div>
                   </div>
@@ -237,7 +237,7 @@ export default function CreateForm() {
                           setBio(e.target.value);
                         }}
                         placeholder="Be unique, short and pitch yourself"
-                        className="w-full px-4 py-2 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-orange-600 caret-orange-600"
+                        className="w-full px-4 py-2 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md resize-y focus:outline-none focus:border-violet-500 caret-violet-500"
                         rows={4}
                       ></textarea>
                     </div>
@@ -249,7 +249,7 @@ export default function CreateForm() {
                         e.preventDefault();
                         send();
                       }}
-                      className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-orange-600 border border-transparent rounded-md focus:outline-none hover:bg-orange-700 focus:bg-orange-700"
+                      className="inline-flex items-center justify-center w-full px-4 py-4 mt-2 text-base font-semibold text-white transition-all duration-200 bg-violet-500 border border-transparent rounded-md focus:outline-none hover:bg-violet-600 focus:bg-violet-600"
                     >
                       Create
                     </button>
