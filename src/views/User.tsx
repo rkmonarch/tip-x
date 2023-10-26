@@ -125,13 +125,13 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
               </Link>
               <Link
                 href={"mailto:" + email}
-                className="p-2 w-fit text-sm border border-gray-700 rounded-full hover:bg-orange-600 hover:border-orange-600 hover:text-white"
+                className="p-2 w-fit text-sm border border-gray-700 rounded-full hover:bg-violet-500 hover:border-violet-500 hover:text-white"
               >
                 <FiMail size={20} />
               </Link>
               <Link
                 href={"https://www.lens.xyz/" + lens}
-                className="w-fit text-sm border border-gray-700 rounded-full hover:bg-orange-600 hover:border-orange-600 hover:text-white"
+                className="w-fit text-sm border border-gray-700 rounded-full hover:bg-lime-300 hover:border-lime-300 hover:text-white"
               >
                 <Image src="/lens.png" height={36} width={36} alt="social" />
               </Link>
@@ -140,7 +140,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
               {tags.map((tag: string, index: any) => (
                 <p
                   key={index}
-                  className="w-fit p-1 px-2 text-base font-medium bg-orange-600/30 border border-orange-600 rounded-full"
+                  className="w-fit p-1 px-2 text-base font-medium bg-violet-200 border border-violet-500 rounded-full"
                 >
                   {tag}
                 </p>
@@ -150,7 +150,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
               <button
                 data-modal-target="authentication-modal"
                 data-modal-toggle="authentication-modal"
-                className="block w-fit mt-4 md:mt-2 text-orange-600 hover:text-white border border-gray-300 hover:bg-orange-600 focus:ring-1 focus:outline-none focus:ring-orange-600 font-medium rounded-2xl text-sm px-4 p-1 text-center"
+                className="block w-fit mt-4 md:mt-2 text-violet-500 hover:text-white border border-violet-300 hover:bg-violet-500 focus:ring-1 focus:outline-none focus:ring-violet-500 font-medium rounded-2xl text-sm px-4 p-1 text-center"
                 type="button"
                 onClick={() => {
                   setModal(true);
@@ -209,7 +209,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
                           type="number"
                           name="amount"
                           id="amount"
-                          className="bg-gray-50 border border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-orange-600 focus:border-orange-600 block w-full p-2.5"
+                          className="bg-gray-50 border border-slate-400 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-range-500 block w-full p-2.5"
                           placeholder="4 ETH"
                           required
                         />
@@ -219,7 +219,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
                           e.preventDefault();
                         }}
                         type="submit"
-                        className="w-full text-white bg-orange-600 focus:ring-1 focus:outline-none focus:ring-orange-600 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
+                        className="w-full text-white bg-violet-500 focus:ring-1 focus:outline-none hover:bg-violet-600 focus:ring-violet-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
                       >
                         Send tip
                       </button>

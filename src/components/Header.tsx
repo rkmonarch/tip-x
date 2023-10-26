@@ -28,7 +28,7 @@ export default function Header() {
           <ul className="hidden lg:flex ml-2 lg:w-auto lg:space-x-14 items-center">
             <li>
               <Link
-                className="inline-block text-3xl text-white font-semibold"
+                className="inline-block text-3xl text-teal-400 font-semibold"
                 href={"/"}
               >
                 TipX
