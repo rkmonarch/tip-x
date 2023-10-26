@@ -10,7 +10,7 @@ export default function Document() {
           rel="stylesheet"
         />
       </Head>
-      <body className="bg-[url('../assets/bg.jpg')] bg-no-repeat bg-cover bg-center bg-fixed  ">
+      <body>
         <Main />
         <NextScript />
       </body>
