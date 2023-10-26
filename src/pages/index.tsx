@@ -5,8 +5,8 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Tip Land</title>
-        <meta name="description" content="tipland" />
+        <title>TipX</title>
+        <meta name="description" content="TipX" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>

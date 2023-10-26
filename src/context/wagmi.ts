@@ -8,7 +8,7 @@ const walletConnectProjectId = process.env
 
 export const wagmiConfig = createConfig(
   getDefaultConfig({
-    appName: "Tip-land",
+    appName: "TipX",
     walletConnectProjectId,
     chains,
   })

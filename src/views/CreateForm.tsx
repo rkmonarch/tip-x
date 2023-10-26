@@ -81,7 +81,7 @@ export default function CreateForm() {
                   <div className="flex flex-row items-center space-x-2">
                     <Image
                       className="mx-auto rounded-xl border border-orange-600 shadow-lg"
-                      src={icon !== "" ? icon : "/profile.png"}
+                      src={icon !== "" ? icon : "/preview.svg"}
                       loader={({ src }) => src}
                       alt="profile"
                       width={150}
@@ -139,7 +139,7 @@ export default function CreateForm() {
                         onChange={(e) => {
                           setEmail(e.target.value);
                         }}
-                        placeholder="javier@tipland.com"
+                        placeholder="javier@tipx.com"
                         className="w-full px-4 py-4 text-black placeholder-gray-500 transition-all duration-200 bg-white border border-gray-200 rounded-md focus:outline-none focus:border-orange-600 caret-orange-600"
                       />
                     </div>

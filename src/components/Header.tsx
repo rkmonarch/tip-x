@@ -10,7 +10,7 @@ export default function Header() {
           <Link className="hidden lg:inline-block text-lg font-bold" href="/">
             <Image
               className="h-10"
-              src="/tip-land.png"
+              src="/tipX.png"
               alt=""
               height={60}
               width={40}
@@ -19,7 +19,7 @@ export default function Header() {
           <Link className="inline-block lg:hidden text-lg font-bold" href="/">
             <Image
               className="h-10"
-              src="/tip-land.png"
+              src="/tipX.png"
               alt=""
               height={60}
               width={40}
@@ -28,7 +28,7 @@ export default function Header() {
           <ul className="hidden lg:flex ml-2 lg:w-auto lg:space-x-14 items-center">
             <li>
               <p className="inline-block text-lg text-orange-500 font-semibold">
-                tip land
+                TipX
               </p>
             </li>
           </ul>

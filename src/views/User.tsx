@@ -98,7 +98,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
     <>
       <Head>
         <title>{name}</title>
-        <meta name="description" content="tip-land" />
+        <meta name="description" content="TipX" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -110,7 +110,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
             loader={() => icon}
             width="250"
             height="250"
-            alt="sonate"
+            alt="TipX"
             className="w-60 h-60 object-cover sm:mr-3 justify-center mb-5 sm:mb-0 rounded-full"
           />
           <span className="flex flex-col text-center sm:text-left text-2xl font-semibold whitespace-nowrap">

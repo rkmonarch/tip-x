@@ -1,4 +1,4 @@
-# TIP LAND
+# TipX
 
 > version: 0.2.0
 

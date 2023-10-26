@@ -26,7 +26,7 @@ export default function Hero() {
             <a className="hidden lg:inline-block text-lg font-bold" href="#">
               <Image
                 className="h-10"
-                src="/tipland.png"
+                src="/tipX.png"
                 alt=""
                 height={60}
                 width={40}
@@ -35,7 +35,7 @@ export default function Hero() {
             <a className="inline-block lg:hidden text-lg font-bold" href="#">
               <Image
                 className="h-10"
-                src="/tipland.png"
+                src="/tipX.png"
                 alt=""
                 height={60}
                 width={40}
@@ -43,8 +43,8 @@ export default function Hero() {
             </a>
             <ul className="hidden lg:flex ml-2 lg:w-auto lg:space-x-14 items-center">
               <li>
-                <p className="inline-block text-lg text-white hover:text-orange-500 font-semibold">
-                  Tip land
+                <p className="inline-block text-3xl text-white hover:text-teal-200 font-bold">
+                  TipX
                 </p>
               </li>
             </ul>
@@ -61,13 +61,13 @@ export default function Hero() {
               <div className="relative max-w-md mx-auto lg:mx-0">
                 <Image
                   className="block h-112 md:h-150 w-full"
-                  src="https://shuffle.dev/saturn-assets/images/headers/image-header-1.png"
+                  src="/asset.svg"
                   alt=""
                   height={150}
                   width={150}
                 />
                 <div className="absolute bottom-0 left-0 p-7">
-                  <div className="p-6 bg-white rounded-2xl">
+                  <div className="p-6 bg-teal-100 shadow-2xl shadow-gray-500 rounded-2xl">
                     <div className="flex mb-14 items-center">
                       <Image
                         className="w-12 h-12 rounded-full"
@@ -85,26 +85,26 @@ export default function Hero() {
                       />
                       <Image
                         className="w-12 h-12 -ml-3 rounded-full"
-                        src="/pfp_3.jpeg"
+                        src="/pfp_3.png"
                         alt=""
                         height={150}
                         width={150}
                       />
                       <Image
                         className="w-12 h-12 -ml-3 rounded-full"
-                        src="/pfp_4.jpeg"
+                        src="/pfp_4.png"
                         alt=""
                         height={150}
                         width={150}
                       />
                       <div className="p-px bg-white rounded-full -ml-3">
-                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-gray-200">
-                          <span className="font-semibold">2K+</span>
+                        <div className="flex items-center justify-center w-12 h-12 rounded-full bg-violet-100">
+                          <span className="font-semibold text-violet-700">52K+</span>
                         </div>
                       </div>
                     </div>
-                    <span className="block mb-2 text-4xl font-bold">52+</span>
-                    <span className="font-medium text-gray-900">
+                    <span className="block mb-2 text-4xl font-bold">749+</span>
+                    <span className="font-semibold text-xl text-teal-800">
                       D_D Members
                     </span>
                   </div>
@@ -144,7 +144,7 @@ export default function Hero() {
                 </div>
                 <div className="sm:flex items-center">
                   <Link
-                    className="relative group inline-block w-full sm:w-auto py-4 px-6 text-white font-semibold bg-orange-600 rounded-md overflow-hidden"
+                    className="relative group inline-block w-full sm:w-auto py-4 px-6 text-white font-semibold bg-violet-500 rounded-md overflow-hidden"
                     href="/createprofile"
                   >
                     <div className="absolute top-0 right-full w-full h-full bg-gray-900 transform group-hover:translate-x-full group-hover:scale-102 transition duration-500"></div>
@@ -169,6 +169,13 @@ export default function Hero() {
                   <div className="flex mt-8 sm:mt-0 sm:ml-8 items-center">
                     <Image
                       className="w-12 h-12 rounded-full"
+                      src="/pfp_1.png"
+                      alt=""
+                      height={150}
+                      width={150}
+                    />
+                    <Image
+                      className="w-12 -ml-3 h-12 rounded-full"
                       src="/pfp_2.png"
                       alt=""
                       height={150}
@@ -176,21 +183,14 @@ export default function Hero() {
                     />
                     <Image
                       className="w-12 -ml-3 h-12 rounded-full"
-                      src="/pfp_3.jpeg"
+                      src="/pfp_3.png"
                       alt=""
                       height={150}
                       width={150}
                     />
                     <Image
                       className="w-12 -ml-3 h-12 rounded-full"
-                      src="/pfp_4.jpeg"
-                      alt=""
-                      height={150}
-                      width={150}
-                    />
-                    <Image
-                      className="w-12 -ml-3 h-12 rounded-full"
-                      src="/pfp_1.png"
+                      src="/pfp_4.png"
                       alt=""
                       height={150}
                       width={150}
