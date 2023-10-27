@@ -27,14 +27,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const api = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/tokens",
     headers: {
-      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_TOKEN as string,
+      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_API_KEY as string,
     },
   });
 
   const NFTapi = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/nfts",
     headers: {
-      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_TOKEN as string,
+      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_API_KEY as string,
     },
   });
 
@@ -76,7 +76,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
 
     if (tokenInfoResponse.code === 0) {
       tokenInfoResponse.data.filter((token: any) => {
-        console.log(token.contract_address);
         if (
           token.contract_address ===
           "0xb24cd494fae4c180a89975f1328eab2a7d5d8f11"
@@ -88,8 +87,6 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
         }
       });
     }
-
-    console.log(tags);
     res.status(200).json(tags);
   } catch (error) {
     console.error(error);

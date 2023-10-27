@@ -4,9 +4,8 @@ import { useState } from "react";
 import { Web3Storage } from "web3.storage";
 import { useAccount } from "wagmi";
 import { ethers } from "ethers";
-import {CONTRACT_ADDRESS} from "../constant/contractAddress";
-import ABI from '../contract/abi.json'
-
+import { CONTRACT_ADDRESS } from "../constant/contractAddress";
+import ABI from "../contract/abi.json";
 
 export default function CreateForm() {
   const [icon, setIcon] = useState("");
@@ -17,9 +16,7 @@ export default function CreateForm() {
   const [lens, setLens] = useState("");
   const [twitterUrl, setTwitterUrl] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
-  const {address} = useAccount();
-
-
+  const { address } = useAccount();
 
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -29,9 +26,7 @@ export default function CreateForm() {
         token: process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN,
       });
       client.put(files).then((cid: String) => {
-        console.log(cid);
         setIcon(`https://${cid}.ipfs.w3s.link/${files[0].name}`);
-        console.log(`https://${cid}.ipfs.w3s.link/${files[0].name}`);
       });
     } else {
       console.log("No access token");
@@ -44,22 +39,17 @@ export default function CreateForm() {
     );
     await provider.send("eth_requestAccounts", []);
     const signer = provider.getSigner();
-    const contract = new ethers.Contract(
-      CONTRACT_ADDRESS,
-      ABI,
-      signer
-    );
+    const contract = new ethers.Contract(CONTRACT_ADDRESS, ABI, signer);
     contract
       .createProfile(userName, metaDataUrl, address)
       .then(async (tx: string) => {
         {
           if (tx) {
-           console.log(tx);
+            console.log(tx);
           }
         }
       });
   };
-
 
   const send = async () => {
     const profile = {
@@ -92,8 +82,6 @@ export default function CreateForm() {
       console.log("No access token");
     }
   };
-
-
 
   return (
     <section className="py-10 bg-gray-900 sm:py-16 lg:py-24">

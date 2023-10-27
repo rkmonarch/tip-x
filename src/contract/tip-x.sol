@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.9;
 
-contract TipLand {
+contract TipX {
     struct UserMessage {
         address senderAddress;
         string message;

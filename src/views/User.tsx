@@ -49,7 +49,11 @@ const Card: FC<NFTCard> = ({ image, name }) => {
   );
 };
 
-export default function User({ parsedData }: { parsedData: UserAccount | undefined }) {
+export default function User({
+  parsedData,
+}: {
+  parsedData: UserAccount | undefined;
+}) {
   const router = useRouter();
   const { username } = router.query;
   const [name, setName] = useState("");
@@ -64,22 +68,18 @@ export default function User({ parsedData }: { parsedData: UserAccount | undefin
   const [nftsData, setNftsData] = useState<NFTCard[]>([]);
   const [tags, setTags] = useState<string[]>([]);
 
-
-
   const getTags = async (address: any) => {
     const data = await fetch(`/api/getNFTTags?address=${address}`, {
       method: "GET",
     });
-    // console.log("data", data);
     const tag = await data.json();
     const tagsList: string[] = [];
-   if (tag.length > 0 && tagsList.length != tag.length) {
-     tag.map((t: string) => {
-       tagsList.push(t);
-     });
-   }
+    if (tag.length > 0 && tagsList.length != tag.length) {
+      tag.map((t: string) => {
+        tagsList.push(t);
+      });
+    }
     setTags(tagsList);
-    console.log("tags", tags);
   };
 
   const getTopNFTs = async (address: any) => {
@@ -88,9 +88,8 @@ export default function User({ parsedData }: { parsedData: UserAccount | undefin
     });
     const nfts = await data.json();
     const nftsList: NFTCard[] = [];
-    if (nfts.length > 0 ) {
+    if (nfts.length > 0) {
       nfts.map((nft: any) => {
-        console.log("nft", nft);
         nftsList.push({
           image: nft.image_uri,
           name: nft.name,
@@ -98,27 +97,25 @@ export default function User({ parsedData }: { parsedData: UserAccount | undefin
       });
     }
     setNftsData(nftsList);
-    console.log("nfts", nftsData);
   };
-  
-useEffect(() => {
-  if (parsedData) {
-    try {
-      setName(parsedData.name);
-      setBio(parsedData.bio);
-      setIcon(parsedData.profileImage);
-      setLens(parsedData.lens);
-      setGithubUrl(parsedData.githubUrl);
-      setTwitter(parsedData.twitterUrl);
-      setEmail(parsedData.email);
-      getTags(parsedData.address);
-      getTopNFTs(parsedData.address);
-    } catch (e) {
-      console.log(e);
-  }
-  }
-   
-}, [parsedData]);
+
+  useEffect(() => {
+    if (parsedData) {
+      try {
+        setName(parsedData.name);
+        setBio(parsedData.bio);
+        setIcon(parsedData.profileImage);
+        setLens(parsedData.lens);
+        setGithubUrl(parsedData.githubUrl);
+        setTwitter(parsedData.twitterUrl);
+        setEmail(parsedData.email);
+        getTags(parsedData.address);
+        getTopNFTs(parsedData.address);
+      } catch (e) {
+        console.log(e);
+      }
+    }
+  }, [parsedData]);
   return (
     <>
       <Head>
@@ -242,7 +239,6 @@ useEffect(() => {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
-                          console.log("amount", amount);
                         }}
                         type="submit"
                         className="w-full text-white bg-violet-500 focus:ring-1 focus:outline-none hover:bg-violet-600 focus:ring-violet-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
