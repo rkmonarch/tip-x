@@ -1,4 +1,3 @@
-import { data } from "autoprefixer";
 import axios from "axios";
 import { NextApiRequest, NextApiResponse } from "next";
 

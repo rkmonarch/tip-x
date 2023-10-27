@@ -1,13 +1,10 @@
 import User from "@/views/User";
 import {
   useContractRead,
-  usePrepareContractWrite,
-  useContractWrite,
-  useWaitForTransaction,
 } from "wagmi";
 import abi from "../contract/abi.json";
 import { CONTRACT_ADDRESS } from "../constant/contractAddress";
-import { use, useEffect, useState } from "react";
+import {  useEffect, useState } from "react";
 
 interface UserAccount {
   profileImage: string;
@@ -35,7 +32,7 @@ export const getServerSideProps = async (context: any) => {
 
 export default function Profile({ username }: { username: string }) {
   const [parsedData, setParsedData] = useState<UserAccount>();
-  const {data, isError, isLoading} = useContractRead({
+  const {data} = useContractRead({
     address: CONTRACT_ADDRESS,
     abi: abi,
     functionName: "getProfile",
@@ -44,7 +41,7 @@ export default function Profile({ username }: { username: string }) {
       console.log("error",error);
     },
     onSuccess: (data: any) => {
-      console.log("data", data.cid);
+      console.log("data", data);
     }
   });
 

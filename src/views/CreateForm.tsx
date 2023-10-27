@@ -3,7 +3,6 @@ import { useState } from "react";
 // @ts-ignore
 import { Web3Storage } from "web3.storage";
 import { useAccount } from "wagmi";
-import { useContractWrite } from "wagmi";
 import { ethers } from "ethers";
 import {CONTRACT_ADDRESS} from "../constant/contractAddress";
 import ABI from '../contract/abi.json'
@@ -18,7 +17,6 @@ export default function CreateForm() {
   const [lens, setLens] = useState("");
   const [twitterUrl, setTwitterUrl] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
-  const [cid, setCid] = useState("");
   const {address} = useAccount();
 
 
@@ -84,8 +82,6 @@ export default function CreateForm() {
         .put([new File([JSON.stringify(profile)], `${userName}.json`)])
         .then(async (cid: any) => {
           try {
-            console.log(cid);
-            setCid(cid);
             const metaDataUrl = `https://${cid}.ipfs.w3s.link/${userName}.json`;
             callContract(metaDataUrl);
           } catch (error) {
