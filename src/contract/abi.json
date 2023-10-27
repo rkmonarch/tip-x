@@ -78,7 +78,7 @@
 						"type": "uint256"
 					}
 				],
-				"internalType": "struct DOJFund.UserMessage[]",
+				"internalType": "struct TipLand.UserMessage[]",
 				"name": "",
 				"type": "tuple[]"
 			}
@@ -109,7 +109,7 @@
 						"type": "address"
 					}
 				],
-				"internalType": "struct DOJFund.UserDetails",
+				"internalType": "struct TipLand.UserDetails",
 				"name": "",
 				"type": "tuple"
 			}
@@ -140,7 +140,7 @@
 						"type": "address"
 					}
 				],
-				"internalType": "struct DOJFund.UserDetails",
+				"internalType": "struct TipLand.UserDetails",
 				"name": "",
 				"type": "tuple"
 			}

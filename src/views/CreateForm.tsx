@@ -2,6 +2,12 @@ import Image from "next/image";
 import { useState } from "react";
 // @ts-ignore
 import { Web3Storage } from "web3.storage";
+import { useAccount } from "wagmi";
+import { useContractWrite } from "wagmi";
+import { ethers } from "ethers";
+import {CONTRACT_ADDRESS} from "../constant/contractAddress";
+import ABI from '../contract/abi.json'
+
 
 export default function CreateForm() {
   const [icon, setIcon] = useState("");
@@ -12,6 +18,10 @@ export default function CreateForm() {
   const [lens, setLens] = useState("");
   const [twitterUrl, setTwitterUrl] = useState("");
   const [githubUrl, setGithubUrl] = useState("");
+  const [cid, setCid] = useState("");
+  const {address} = useAccount();
+
+
 
   const uploadImage = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -30,6 +40,29 @@ export default function CreateForm() {
     }
   };
 
+  const callContract = async (metaDataUrl: string) => {
+    const provider = new ethers.providers.Web3Provider(
+      (window as any).ethereum
+    );
+    await provider.send("eth_requestAccounts", []);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      CONTRACT_ADDRESS,
+      ABI,
+      signer
+    );
+    contract
+      .createProfile(userName, metaDataUrl, "0x63989a803b61581683B54AB6188ffa0F4bAAdf28")
+      .then(async (tx: string) => {
+        {
+          if (tx) {
+           console.log(tx);
+          }
+        }
+      });
+  };
+
+
   const send = async () => {
     const profile = {
       profileImage: icon,
@@ -40,7 +73,7 @@ export default function CreateForm() {
       lens: lens,
       twitterUrl: twitterUrl,
       githubUrl: githubUrl,
-      address: "",
+      address: "0x63989a803b61581683B54AB6188ffa0F4bAAdf28",
     };
 
     if (process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN != null) {
@@ -51,7 +84,10 @@ export default function CreateForm() {
         .put([new File([JSON.stringify(profile)], `${userName}.json`)])
         .then(async (cid: any) => {
           try {
-            ("");
+            console.log(cid);
+            setCid(cid);
+            const metaDataUrl = `https://${cid}.ipfs.w3s.link/${userName}.json`;
+            callContract(metaDataUrl);
           } catch (error) {
             console.log("Error", error);
           }
@@ -60,6 +96,8 @@ export default function CreateForm() {
       console.log("No access token");
     }
   };
+
+
 
   return (
     <section className="py-10 bg-gray-900 sm:py-16 lg:py-24">

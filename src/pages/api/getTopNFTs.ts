@@ -27,7 +27,7 @@ export default async (req: NextApiRequest, res: NextApiResponse<NFTResponse>) =>
   const api = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/nfts",
     headers: {
-      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_API_KEY as string,
+      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_TOKEN as string,
     },
   });
 

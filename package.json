@@ -17,7 +17,8 @@
     "react-icons": "^4.11.0",
     "viem": "^1.17.1",
     "wagmi": "^1.4.5",
-    "web3.storage": "^4.5.5"
+    "web3.storage": "^4.5.5",
+    "ethers": "^5.5.0"
   },
   "devDependencies": {
     "@types/node": "^20",
