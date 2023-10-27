@@ -94,7 +94,6 @@ export default function User({ parsedData }: { parsedData: UserAccount | undefin
         nftsList.push({
           image: nft.image_uri,
           name: nft.name,
-          // url: nft.collection.marketplace_pages[0].collection_url,
         });
       });
     }
