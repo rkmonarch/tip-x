@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { BsTwitter } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import Header from "@/components/Header";
@@ -49,7 +49,7 @@ const Card: FC<NFTCard> = ({ image, name, url }) => {
   );
 };
 
-export default function User({ parsedData }: { parsedData: UserAccount }) {
+export default function User({ parsedData }: { parsedData: UserAccount | undefined }) {
   const router = useRouter();
   const { username } = router.query;
   const [name, setName] = useState("");
@@ -64,16 +64,22 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
   const [nftsData, setNftsData] = useState<NFTCard[]>([]);
   const [tags, setTags] = useState<string[]>([]);
 
+
+
   const getTags = async (address: any) => {
-    const data = await fetch(`/api/getNFTtags?address=${address}`, {
+    const data = await fetch(`/api/getNFTTags?address=${address}`, {
       method: "GET",
     });
+    // console.log("data", data);
     const tag = await data.json();
     const tagsList: string[] = [];
-    tag.map((t: string) => {
-      tagsList.push(t);
-    });
+   if (tag.length > 0 && tagsList.length != tag.length) {
+     tag.map((t: string) => {
+       tagsList.push(t);
+     });
+   }
     setTags(tagsList);
+    console.log("tags", tags);
   };
 
   const getTopNFTs = async (address: any) => {
@@ -82,7 +88,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
     });
     const nfts = await data.json();
     const nftsList: NFTCard[] = [];
-    if (nfts.length > 0) {
+    if (nfts.length > 0 && nftsList.length != nfts.length) {
       nfts.map((nft: any) => {
         nftsList.push({
           image: nft.previews.image_medium_url,
@@ -93,7 +99,25 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
     }
     setNftsData(nftsList);
   };
-
+  
+useEffect(() => {
+  if (parsedData) {
+    try {
+      setName(parsedData.name);
+      setBio(parsedData.bio);
+      setIcon(parsedData.profileImage);
+      setLens(parsedData.lens);
+      setGithubUrl(parsedData.githubUrl);
+      setTwitter(parsedData.twitterUrl);
+      setEmail(parsedData.email);
+      getTags(parsedData.address);
+      getTopNFTs(parsedData.address);
+    } catch (e) {
+      console.log(e);
+  }
+  }
+   
+}, [parsedData]);
   return (
     <>
       <Head>
@@ -217,6 +241,7 @@ export default function User({ parsedData }: { parsedData: UserAccount }) {
                       <button
                         onClick={(e) => {
                           e.preventDefault();
+                          console.log("amount", amount);
                         }}
                         type="submit"
                         className="w-full text-white bg-violet-500 focus:ring-1 focus:outline-none hover:bg-violet-600 focus:ring-violet-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center"

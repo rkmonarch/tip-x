@@ -28,14 +28,14 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   const api = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/tokens",
     headers: {
-      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_API_KEY as string,
+      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_TOKEN as string,
     },
   });
 
   const NFTapi = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/nfts",
     headers: {
-      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_API_KEY as string,
+      "x-api-key": process.env.NEXT_PUBLIC_CHAINBASE_TOKEN as string,
     },
   });
 
@@ -91,11 +91,7 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     }
 
     console.log(tags);
-    res.status(200).json({
-      code: 200,
-      message: "Success",
-      data: tags,
-    });
+    res.status(200).json(tags);
   } catch (error) {
     console.error(error);
     res.status(500).json({ code: 500, message: "Internal Server Error" });
