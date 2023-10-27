@@ -52,7 +52,7 @@ export default function CreateForm() {
       signer
     );
     contract
-      .createProfile(userName, metaDataUrl, "0x63989a803b61581683B54AB6188ffa0F4bAAdf28")
+      .createProfile(userName, metaDataUrl, address)
       .then(async (tx: string) => {
         {
           if (tx) {
@@ -73,7 +73,7 @@ export default function CreateForm() {
       lens: lens,
       twitterUrl: twitterUrl,
       githubUrl: githubUrl,
-      address: "0x63989a803b61581683B54AB6188ffa0F4bAAdf28",
+      address: address,
     };
 
     if (process.env.NEXT_PUBLIC_WEB3STORAGE_TOKEN != null) {
