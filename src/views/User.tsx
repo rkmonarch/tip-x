@@ -2,10 +2,9 @@ import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
-import { BsTwitter } from "react-icons/bs";
+import { BsTwitter, BsGithub } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import Header from "@/components/Header";
-import { useRouter } from "next/router";
 
 interface UserAccount {
   profileImage: string;
@@ -33,7 +32,7 @@ const Card: FC<NFTCard> = ({ image, name }) => {
     >
       <div className="flex flex-col items-center mt-2 space-y-2">
         <Image
-          className="w-64 h-60 object-contain rounded-xl shadow-lg"
+          className="w-64 h-60 bg-teal-50 object-contain rounded-xl shadow-lg"
           src={image}
           loader={({ src }) => src}
           width={250}
@@ -54,8 +53,6 @@ export default function User({
 }: {
   parsedData: UserAccount | undefined;
 }) {
-  const router = useRouter();
-  const { username } = router.query;
   const [name, setName] = useState("");
   const [bio, setBio] = useState("");
   const [icon, setIcon] = useState("");
@@ -137,7 +134,9 @@ export default function User({
           />
           <span className="flex flex-col text-center sm:text-left text-2xl font-semibold whitespace-nowrap">
             <p className="font-bold text-5xl mb-1">{name}</p>
-            <p className="text-gray-600 font-medium text-2xl mb-4">{bio}</p>
+            <p className="text-gray-600 font-medium text-sm md:text-2xl mb-4">
+              {bio}
+            </p>
             <div className="flex flex-row justify-center sm:justify-start space-x-2">
               <Link
                 href={"https://twitter.com/" + twitter}
@@ -150,6 +149,12 @@ export default function User({
                 className="p-2 w-fit text-sm border border-gray-700 rounded-full hover:bg-violet-500 hover:border-violet-500 hover:text-white"
               >
                 <FiMail size={20} />
+              </Link>
+              <Link
+                href={"https://github.com/" + githubUrl}
+                className="p-2 w-fit text-sm border border-gray-700 rounded-full hover:bg-teal-500 hover:border-teal-500 hover:text-white"
+              >
+                <BsGithub size={20} />
               </Link>
               <Link
                 href={"https://www.lens.xyz/" + lens}
@@ -207,9 +212,9 @@ export default function User({
                     >
                       <path
                         stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
                       />
                     </svg>
