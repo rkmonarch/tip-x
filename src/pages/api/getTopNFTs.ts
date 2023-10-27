@@ -11,6 +11,7 @@ interface NFT {
   contract_address: string;
   floor_prices: FloorPrice[];
   image_uri: string;
+  name: string;
 }
 
 let NFTList: NFT[] = [];
@@ -23,7 +24,7 @@ interface NFTResponse {
   count: number;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse<NFTResponse>) => {
+export default async (req: NextApiRequest, res: NextApiResponse) => {
   const api = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/nfts",
     headers: {
@@ -44,25 +45,21 @@ export default async (req: NextApiRequest, res: NextApiResponse<NFTResponse>) =>
     const formattedNfts = nftResponse as NFTResponse;
 
     const filteredNFTs = formattedNfts.data.map((nft) => {
+      console.log(nft.name);
         if (nft.floor_prices != null && nft.floor_prices.length > 0) { 
-            if (parseFloat(nft.floor_prices[0].value) > 0.03) {
+            if (parseFloat(nft.floor_prices[0].value) > 0.03 && nft.image_uri != '') {
                 NFTList.push({
                     contract_address: nft.contract_address,
                     floor_prices: nft.floor_prices,
-                    image_uri: nft.image_uri
+                    image_uri: nft.image_uri,
+                    name: nft.name
                 });
             }
         }
 
     });    
 
-    res.status(200).json({
-        code: 200,
-        message: "Success",
-        data: NFTList,
-        next_page: 0,
-        count: NFTList.length,
-    });
+    res.status(200).json(NFTList.slice(0, 5));
   } catch (error) {
     console.error("Error fetching NFT data:", error);
   }
