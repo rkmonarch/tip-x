@@ -22,10 +22,10 @@ interface UserAccount {
 interface NFTCard {
   image: string;
   name: string;
-  url: string;
+  // url: string;
 }
 
-const Card: FC<NFTCard> = ({ image, name, url }) => {
+const Card: FC<NFTCard> = ({ image, name }) => {
   return (
     <Link
       className="w-full md:w-[22%] mb-5 p-2 bg-white border border-gray-100 rounded-xl shadow-lg flex flex-col"
@@ -40,7 +40,7 @@ const Card: FC<NFTCard> = ({ image, name, url }) => {
           height={250}
           alt="nft"
           onClick={() => {
-            window.open(url, "_blank");
+            // window.open(url, "_blank");
           }}
         />
         <p className="text-lg text-slate-900 font-regular">{name}</p>
@@ -88,16 +88,18 @@ export default function User({ parsedData }: { parsedData: UserAccount | undefin
     });
     const nfts = await data.json();
     const nftsList: NFTCard[] = [];
-    if (nfts.length > 0 && nftsList.length != nfts.length) {
+    if (nfts.length > 0 ) {
       nfts.map((nft: any) => {
+        console.log("nft", nft);
         nftsList.push({
-          image: nft.previews.image_medium_url,
+          image: nft.image_uri,
           name: nft.name,
-          url: nft.collection.marketplace_pages[0].collection_url,
+          // url: nft.collection.marketplace_pages[0].collection_url,
         });
       });
     }
     setNftsData(nftsList);
+    console.log("nfts", nftsData);
   };
   
 useEffect(() => {
@@ -262,7 +264,7 @@ useEffect(() => {
           <hr className="my-12 h-[0.5px] border-t-0 bg-gray-300 opacity-90" />
           <div className="flex flex-row flex-wrap items-center justify-between bg-[#F8F7FF]">
             {nftsData.map((nft: NFTCard, i) => (
-              <Card key={i} image={nft.image} name={nft.name} url={nft.url} />
+              <Card key={i} image={nft.image} name={nft.name} />
             ))}
           </div>
         </div>
