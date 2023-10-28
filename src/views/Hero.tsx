@@ -51,7 +51,7 @@ export default function Hero() {
                 </Link>
               </li>
             </ul>
-            <div className="hidden lg:block ml-auto">
+            <div className="block ml-auto">
               <ConnectKitButton />
             </div>
           </div>
