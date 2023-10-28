@@ -151,7 +151,7 @@ export default function User({
       </Head>
       <main className="min-h-[100vh] max-w-full bg-[#F8F7FF]">
         <Header />
-        <div className="flex flex-col sm:flex-row items-center p-8 pt-20 px-2 justify-center bg-[#fefefe] sm:space-x-10 rounded border-t-[1px] border-gray-300">
+        <div className="flex flex-col sm:flex-row items-center p-8 pt-24 px-2 justify-center bg-[#fefefe] sm:space-x-10 rounded border-t-[1px] border-gray-300">
           <Image
             src={icon}
             loader={() => icon}
@@ -219,7 +219,7 @@ export default function User({
               aria-hidden="true"
               className={`${
                 modal ? "flex" : "hidden"
-              } fixed justify-center items-center backdrop-blur-sm z-50 w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full`}
+              } fixed justify-center items-center backdrop-blur-sm z-50 w-full p-4 overflow-x-hidden overflow-y-auto inset-0 max-h-full`}
             >
               <div className="relative w-full max-w-md max-h-full">
                 <div className="relative rounded-lg shadow bg-gray-900">
