@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <div className="relative h-[100vh] pb-12 overflow-hidden">
+    <div className="relative lg:h-[100vh] pb-12 overflow-hidden">
       <Image
         className="hidden lg:block absolute top-0 left-0 w-32 md:w-auto z-10"
         src="https://shuffle.dev/saturn-assets/images/headers/star-header-dark.png"
@@ -51,7 +51,7 @@ export default function Hero() {
                 </Link>
               </li>
             </ul>
-            <div className="hidden lg:block ml-auto">
+            <div className="block ml-auto">
               <ConnectKitButton />
             </div>
           </div>

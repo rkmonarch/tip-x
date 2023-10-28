@@ -84,7 +84,7 @@ export default function CreateForm() {
   };
 
   return (
-    <section className="py-10 bg-gray-900 sm:py-16 lg:py-24">
+    <section className="bg-gray-900 py-24">
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold leading-tight text-teal-200 sm:text-4xl lg:text-5xl">
@@ -113,17 +113,19 @@ export default function CreateForm() {
                       <label className="text-base font-medium text-gray-900">
                         Upload your pfp
                       </label>
-                      <input
-                        className="p-2 text-xs text-violet-600 border border-violet-300 rounded-xl cursor-pointer bg-violet-50 focus:outline-none"
-                        id="image"
-                        name="image"
-                        type="file"
-                        accept={"image/*"}
-                        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                          uploadImage(e)
-                        }
-                        required
-                      ></input>
+                      <span className="flex w-[70%] md:w-[100%]">
+                        <input
+                          className="p-2 text-xs text-violet-600 border border-violet-300 rounded-xl cursor-pointer bg-violet-50 focus:outline-none"
+                          id="image"
+                          name="image"
+                          type="file"
+                          accept={"image/*"}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                            uploadImage(e)
+                          }
+                          required
+                        ></input>
+                      </span>
                     </div>
                   </div>
                 </div>

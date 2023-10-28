@@ -35,7 +35,7 @@ export default function Header() {
               </Link>
             </li>
           </ul>
-          <div className="hidden lg:block ml-auto">
+          <div className="block ml-auto">
             <ConnectKitButton />
           </div>
         </div>
