@@ -5,6 +5,11 @@ import { FC, useEffect, useState } from "react";
 import { BsTwitter, BsGithub } from "react-icons/bs";
 import { FiMail } from "react-icons/fi";
 import Header from "@/components/Header";
+import { useRouter } from "next/router";
+import { useContractWrite, usePrepareContractWrite, useWaitForTransaction } from "wagmi";
+import {CONTRACT_ADDRESS} from "../constant/contractAddress";
+import ABI from "../contract/abi.json";
+import { utils } from "ethers";
 
 interface UserAccount {
   profileImage: string;
@@ -64,6 +69,7 @@ export default function User({
   const [modal, setModal] = useState(false);
   const [nftsData, setNftsData] = useState<NFTCard[]>([]);
   const [tags, setTags] = useState<string[]>([]);
+  const [userName, setUserName] = useState("");
 
   const getTags = async (address: any) => {
     const data = await fetch(`/api/getNFTTags?address=${address}`, {
@@ -96,6 +102,27 @@ export default function User({
     setNftsData(nftsList);
   };
 
+  const { config } = usePrepareContractWrite({
+    address: CONTRACT_ADDRESS,
+    value: utils.parseEther(amount.toString()).toBigInt(),
+    abi: ABI,
+    functionName: "addMessage",
+    args: [userName, "Sending money", utils.parseEther(amount.toString()).toBigInt()],
+    onError: (error) => {
+      console.log(error);
+    },
+    onSuccess: (receipt) => {
+      console.log("Success", receipt);
+    },
+  });
+
+  const { data: msgData, write } = useContractWrite(config);
+
+  const { isLoading: isMsgLoading, isSuccess } = useWaitForTransaction({
+    hash: msgData?.hash,
+  });
+  
+
   useEffect(() => {
     if (parsedData) {
       try {
@@ -108,6 +135,7 @@ export default function User({
         setEmail(parsedData.email);
         getTags(parsedData.address);
         getTopNFTs(parsedData.address);
+        setUserName(parsedData.userName);
       } catch (e) {
         console.log(e);
       }
@@ -244,6 +272,7 @@ export default function User({
                       <button
                         onClick={(e) => {
                           e.preventDefault();
+                          write?.();
                         }}
                         type="submit"
                         className="w-full text-white bg-violet-500 focus:ring-1 focus:outline-none hover:bg-violet-600 focus:ring-violet-500 font-medium rounded-lg text-sm px-5 py-2.5 text-center"
