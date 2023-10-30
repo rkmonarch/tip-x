@@ -10,6 +10,8 @@ It helps to bring on-chain assets of prospective individuals in a personalized b
 - To fetch user's all NFTs
 - To filter NFT by `contract`, `volume`, and `floor price`
 
+**See our demo video: https://youtu.be/vafCk857-HM**
+
 ## Prerequisites & Manual Setup
 
 Every user must have a Metamask wallet to interact with this product. Check out how to create a Metamask wallet from [here](https://metamask.io). 
