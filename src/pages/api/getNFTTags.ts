@@ -23,7 +23,7 @@ interface NFTResponse {
   count: number;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const api = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/tokens",
     headers: {
@@ -93,3 +93,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     res.status(500).json({ code: 500, message: "Internal Server Error" });
   }
 };
+
+export default handler;

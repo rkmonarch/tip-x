@@ -24,7 +24,7 @@ interface NFTResponse {
   count: number;
 }
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
   const api = axios.create({
     baseURL: "https://api.chainbase.online/v1/account/nfts",
     headers: {
@@ -65,3 +65,5 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
     console.error("Error fetching NFT data:", error);
   }
 };
+
+export default handler;

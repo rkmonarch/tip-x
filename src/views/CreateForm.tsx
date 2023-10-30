@@ -128,7 +128,7 @@ export default function CreateForm() {
         }
       );
     }
-  }, [isSuccess, isError, error]);
+  }, [isSuccess, isError, error, userName, router]);
 
   return (
     <section className="bg-gray-900 py-24">
